@@ -1,38 +1,42 @@
 .App {
-  text-align: center;
+  grid-area: app;
+  margin: 5ch;
+  width: 60%;
+  height: min(100vh, auto);
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  /* Color added! - https://www.css-gradient.com/?c1=d4c2f9&c2=d4c0f7 */
+  background: #d5c2f9;
+  background: -webkit-linear-gradient(top left, #d5c2f9, #d5c0f7);
+  background: -moz-linear-gradient(top left, #d5c2f9, #d5c0f7);
+  background: linear-gradient(to bottom right, #d5c2f9, #d5c0f7);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  /* Color added! - https://www.css-gradient.com/?c1=ef9bd9&c2=d637a6 */
+  background: #ef9bd9;
+  background: -webkit-linear-gradient(top left, #ef9bd9, #d637a6);
+  background: -moz-linear-gradient(top left, #ef9bd9, #d637a6);
+  background: linear-gradient(to bottom right, #ef9bd9, #d637a6);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* New entry */
+.New {
+  padding: 2ch;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+button {
+  font: inherit;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 1px solid #40005d;
+  background-color: #40005d;
   color: white;
+  border-radius: 12px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a {
+  text-decoration: none;
+  color: white
 }

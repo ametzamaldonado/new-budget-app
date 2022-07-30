@@ -1,0 +1,64 @@
+.dashboard-display-container {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 2ch;
+    margin-left: 2%;
+    margin-right: auto;
+}
+
+#show {
+  text-align: center;
+  border: solid black;
+  border-radius: 3ch;
+  width: 90%;
+  margin: 1.5%;
+}
+
+#show > ul {
+  padding-right: 5ch;
+  justify-content: center;
+  list-style:none;
+}
+
+#show ul > li {
+  list-style: none;
+}
+
+.entry h4 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.entry h6 {
+  font-style: italic;
+}
+
+.hide-entry-ul {
+  display: none;
+}
+
+.show-card-options {
+  display: flex;
+  justify-content: space-around;
+}
+
+.show-card-options button {
+  background: transparent;
+  border-radius: 8px;
+  text-decoration: underline;
+}
+
+.new-expense-btnContainer {
+  display: flex;
+}
+
+.content__button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+#hide-button {
+  display: none;
+}
+

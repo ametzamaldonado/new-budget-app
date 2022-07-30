@@ -1,0 +1,53 @@
+@import url(https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple); /* Title inspo link: https://www.w3schools.com/css/css_font_google.asp */
+
+.app-title {
+    padding-top: 1ch;
+  text-align: center;
+  font-family: "Sofia", sans-serif;
+  font-size: 50px;
+  font-style: italic;
+}
+
+.app-header {
+    display: grid;
+    grid-template-areas: 
+    "balance"
+    "accountInfo";
+    background-color: rgb(96, 75, 150);
+    grid-template-rows: 1fr 1fr;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:larger;
+    font-weight: bold;
+}
+
+.total {
+    padding: 2ch;
+    border-radius: 15px;
+    justify-self:center;
+    grid-area: balance;
+    text-decoration:underline;
+}
+
+.account-info {
+    display:flex;
+    justify-content: space-around;
+    grid-area: accountInfo;
+    text-align: right;
+}
+
+.income-title, .expenses-title{
+    padding: 2ch;
+    border-radius: 25px;
+}
+
+.color-total-green {
+    color: green
+}
+
+.color-total-red {
+    color: red
+}
+
+.color-total-neutral {
+    color: rgb(203, 150, 52)
+}
