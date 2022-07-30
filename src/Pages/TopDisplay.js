@@ -32,7 +32,7 @@ function TopDisplay({ incomeTotal, setIncomeTotal, expenseTotal, setExpenseTotal
   }
 
   return (
-    <>
+    <div className='app-title-container'>
       <h1 className="app-title font-effect-neon"> <Link to='/transactions'>simplyBugeting</Link></h1>
       <div className="app-header">
         <div className="total"> Balance: ${totalColor()}
@@ -46,7 +46,7 @@ function TopDisplay({ incomeTotal, setIncomeTotal, expenseTotal, setExpenseTotal
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

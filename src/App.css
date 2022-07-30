@@ -1,5 +1,4 @@
 .App {
-  grid-area: app;
   margin: 5ch;
   width: 60%;
   height: min(100vh, auto);
@@ -39,4 +38,36 @@ button {
 a {
   text-decoration: none;
   color: white
+}
+
+
+@media only screen and ( max-width: 480px) {
+  .app-title-container {
+    display: inline-block;
+  }
+ /* simplyBudgeting Title */
+  .app-title a{
+    margin-right: 1ch;
+    font-size:9vw;
+  }
+ main {
+  display: inline-block;
+  width: fit-content;
+
+ }
+
+ .dashboard-display-container {
+   display:grid;
+   grid-template-columns: 1fr;
+  /* overflow: scroll; */
+  width: 50%;
+  /* margin-top: 2ch;
+  margin-left: 2%;
+  margin-right: auto; */
+}
+
+#show {
+  justify-content: center;
+}
+
 }
