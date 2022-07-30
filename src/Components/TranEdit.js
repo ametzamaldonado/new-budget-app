@@ -25,7 +25,7 @@ function TranEdit() {
                 setTransaction(res.data)
             })
             .catch(err => navigate('/404'))
-    }, [index]);
+    }, [index, navigate]);
 
     const handleTextChange = (e) => {
         setTransaction({ ...transaction, [e.target.id]: e.target.value });
