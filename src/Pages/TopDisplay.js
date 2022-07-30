@@ -27,7 +27,6 @@ function TopDisplay({ incomeTotal, setIncomeTotal, expenseTotal, setExpenseTotal
     } else if (0 <= balance && balance < 1000) {
       return <span className='color-total-neutral'>{balance}</span>
     } else if (balance < 0) {
-      console.log(balance)
       return <span className='color-total-red'>{balance}</span>
     }
   }
