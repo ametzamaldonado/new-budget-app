@@ -28,3 +28,17 @@ textarea {
 .Edit {
   margin: 2ch;
 }
+
+@media only screen and (max-width: 480px) {
+  .entry-form {
+    margin-left: 10%;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea {
+    margin-left: 20%;
+  }
+}
