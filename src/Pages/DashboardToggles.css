@@ -1,15 +1,16 @@
 .budget-display {
-    text-align: center;
+  text-align: center;
 }
 
-.active, .btn:hover {
-    width: 20%;
-    background-color: #FF6EC7;
-    opacity: 1 !important;
-    color: white;
+.active,
+.btn:hover {
+  width: 20%;
+  background-color: #4e4b44b5;
+  opacity: 1 !important;
+  color: white;
 }
 
 .display-options {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }

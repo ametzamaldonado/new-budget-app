@@ -27,7 +27,6 @@ function App() {
     axios.get(`${API}/transactions`) // fetches data from API that is running as well
       .then((res) => {
         setTransactions(res.data)
-        
       })
       .catch((err) => { console.log(err) })
   }, [transactions])

@@ -3,7 +3,6 @@ import "./TopDisplay.css";
 import { Link } from 'react-router-dom';
 
 
-
 function TopDisplay({ incomeTotal, setIncomeTotal, expenseTotal, setExpenseTotal, transactions }) {
 
   const calculateIncome = () => {
@@ -20,6 +19,7 @@ function TopDisplay({ incomeTotal, setIncomeTotal, expenseTotal, setExpenseTotal
 
   calculateIncome()
   calculateExpenses()
+
   const totalColor = () => {
     const balance = (Number(incomeTotal) + Number(expenseTotal)).toFixed(2);
     if (balance >= 1000) {
@@ -33,7 +33,7 @@ function TopDisplay({ incomeTotal, setIncomeTotal, expenseTotal, setExpenseTotal
 
   return (
     <div className='app-title-container'>
-      <h1 className="app-title font-effect-neon"> <Link to='/transactions'>simplyBudgeting</Link></h1>
+      <h1 className="app-title"> <Link to='/transactions'>simplyBudgeting</Link></h1>
       <div className="app-header">
         <div className="total"> Balance: ${totalColor()}
         </div>

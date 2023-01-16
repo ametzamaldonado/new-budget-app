@@ -5,19 +5,12 @@
   border-radius: 25px;
   margin-left: auto;
   margin-right: auto;
-  /* Color added! - https://www.css-gradient.com/?c1=d4c2f9&c2=d4c0f7 */
-  background: #d5c2f9;
-  background: -webkit-linear-gradient(top left, #d5c2f9, #d5c0f7);
-  background: -moz-linear-gradient(top left, #d5c2f9, #d5c0f7);
-  background: linear-gradient(to bottom right, #d5c2f9, #d5c0f7);
+  padding-bottom: 5%; 
+  background: #ada192;
 }
 
 body {
-  /* Color added! - https://www.css-gradient.com/?c1=ef9bd9&c2=d637a6 */
-  background: #ef9bd9;
-  background: -webkit-linear-gradient(top left, #ef9bd9, #d637a6);
-  background: -moz-linear-gradient(top left, #ef9bd9, #d637a6);
-  background: linear-gradient(to bottom right, #ef9bd9, #d637a6);
+  background: #5c524c;
 }
 
 /* New entry */
@@ -29,23 +22,20 @@ button {
   font: inherit;
   cursor: pointer;
   padding: 1rem 2rem;
-  border: 1px solid #40005d;
-  background-color: #40005d;
+  border: 1px solid #4e4b44b5;
+  background-color: #4e4b44b5;
   color: white;
   border-radius: 12px;
 }
 
 a {
   text-decoration: none;
-  color: white
+  color: white;
 }
 
-
-@media (max-width: 901px ){
+@media (max-width: 901px) {
   .App {
-    width:100%;
+    width: 100%;
     height: fit-content;
   }
 }
-
-

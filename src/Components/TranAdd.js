@@ -3,7 +3,7 @@ import { useState, React } from "react";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 
-const API = 'https://budget-app-api-sample-data.herokuapp.com';
+const API = 'https://budget-app-api-sample-data.onrender.com';
 
 function TranAdd() {
     const [value, setValue] = useState('');
@@ -62,7 +62,7 @@ function TranAdd() {
                             id="date"
                             type="date"
                             min="2019-01-01"
-                            max="2022-12-31"
+                            max="2023-12-31"
                             value={transaction.date}
                             onChange={handleTextChange}
                             required
@@ -99,10 +99,11 @@ function TranAdd() {
                             required
                         />
                     </label>
+                    <div className="showNavigation-buttons">
+                        <button type="submit">Submit</button>
+                        <Link to="/transactions"><button>Nevermind!</button></Link>
+                    </div>
 
-                    <button type="submit">Submit</button>
-
-                    <button><Link to="/transactions">Nevermind!</Link></button>
                 </form>
             </div>
         </>

@@ -5,7 +5,7 @@ import axios from "axios";
 import './TranDetails.css';
 
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-const API = 'https://budget-app-api-sample-data.herokuapp.com';
+const API = 'https://budget-app-api-sample-data.onrender.com';
 
 function TranDetails() {
 
@@ -17,7 +17,7 @@ function TranDetails() {
         axios.get(`${API}/transactions/${index}`)
             .then((res) => setTransaction(res.data))
             .catch((err) => navigate(`/404`))
-    }, [index, navigate]);
+    }, [index]);
 
     const handleDelete = () => {
         axios.delete(`${API}/transactions/${index}`) // deletes

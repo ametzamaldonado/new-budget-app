@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API = 'https://budget-app-api-sample-data.herokuapp.com';
+const API = 'https://budget-app-api-sample-data.onrender.com';
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 
@@ -56,14 +56,14 @@ function BottomDisplay({ transactions, toggleChoice }) {
                         <ul className={`${entry.category}-ul`}>
                             <li className='list'>
                                 <div className="entry">
-                                    <h4>{entry.item_name} - ${entry.amount}
+                                    <h4>{entry.item_name}: ${entry.amount}
                                         <br />
                                         From: {entry.from}
                                     </h4>
                                     <h6>Amount posted on {getDate(entry)}</h6>
                                 </div>
                                 <div className='show-card-options'>
-                                    <button className="edit" value={i}><Link to={`/transactions/${i}`}>✏️</Link></button>
+                                    <Link to={`/transactions/${i}`}><button className="edit" value={i}>✏️</button></Link>
                                     <button className="delete" value={i} onClick={e => handleDelete(e)}>🗑️</button>
                                 </div>
                             </li>

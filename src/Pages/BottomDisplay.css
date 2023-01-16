@@ -54,6 +54,7 @@
 
 .content__button {
   position: fixed;
+  border: 1px solid white;
   bottom: 0;
   right: 0;
 }

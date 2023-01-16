@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import "./TranEdit.css"
 import axios from "axios";
 
-const API = 'https://budget-app-api-sample-data.herokuapp.com';
+const API = 'https://budget-app-api-sample-data.onrender.com';
 
 function TranEdit() {
 
@@ -36,7 +36,7 @@ function TranEdit() {
         setTransaction({ ...transaction, category: e.target.value });
     };
 
-    
+
     const updateTranEntry = () => {
         axios.put(`${API}/transactions/${index}`, transaction)
             .then(res => {
@@ -113,11 +113,12 @@ function TranEdit() {
                     />
                 </label>
 
-                <button type="submit">Submit</button>
-
-                <button>
-                    <Link to={`/transactions/${index}`}><span>Nevermind!</span></Link>
-                </button>
+                <div className="showNavigation-buttons">
+                    <button type="submit">Submit</button>
+                    <Link to={`/transactions/${index}`}>
+                        <button>Nevermind!</button>
+                    </Link>
+                </div>
             </form>
         </div>
     );

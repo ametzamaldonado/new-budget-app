@@ -5,8 +5,9 @@
 }
 
 .showNavigation-buttons {
-    text-align:center; 
-    padding-bottom: 2ch;   
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2ch;  
 }
 
 .show-card-outter {
