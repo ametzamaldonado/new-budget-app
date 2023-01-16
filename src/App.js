@@ -15,7 +15,7 @@ import TranDetails from "./Components/TranDetails";
 import TranEdit from "./Components/TranEdit";
 import TranAdd from "./Components/TranAdd";
 
-const API = 'https://budget-app-api-sample-data.onrender.com/';
+const API = 'https://budget-app-api-sample-data.onrender.com';
 
 function App() {
   const [toggleChoice, setToggleChoice] = useState('allTog')
