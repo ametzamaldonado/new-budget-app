@@ -1,41 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,700&display=swap');
+
 .App {
-  margin: 5ch;
-  width: 60%;
-  height: min(100vh, auto);
-  border-radius: 25px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 5%; 
-  background: #ada192;
+  font-family: 'Merriweather', serif;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: .5fr 3fr;
+  grid-template-areas: 
+  "header header header"
+  "toggles table table"
+  "toggles table table";
+  font-size: larger;
+  height: 100vh;
 }
 
-body {
-  background: #5c524c;
+.dashboard-table-container {
+  grid-area: table;
+}
+.budget-toggleContainer{
+  grid-area: toggles;
+}
+.header{
+  grid-area: header;
+  background-color:#8b8d81 ;
 }
 
-/* New entry */
-.New {
-  padding: 2ch;
-}
-
-button {
-  font: inherit;
-  cursor: pointer;
-  padding: 1rem 2rem;
-  border: 1px solid #4e4b44b5;
-  background-color: #4e4b44b5;
-  color: white;
-  border-radius: 12px;
+.app-title {
+  font-weight: bolder;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: inherit;
 }
 
-@media (max-width: 901px) {
+main {
+  background-color: #eaebe7;
+  height: 100vh;
+  overflow: auto;
+}
+
+.edit-column {
+  width: 50%;
+}
+
+.show-page {
+  display: flex;
+  justify-items: center;
+}
+
+.showNavigation-buttons {
+  display: flex;
+  margin: 2ch;
+  gap: 10%;
+  justify-content: center;
+}
+
+
+
+@media only screen and (max-width: 871px) {
+  
   .App {
-    width: 100%;
-    height: fit-content;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "header"
+    "toggles"
+    "table";
   }
+
+  .show-page {
+    display: grid;
+    grid-column: 1fr;
+  }
+
+  .edit-column {
+    width: 100%;
+    margin: 5ch;
+  }
+
 }

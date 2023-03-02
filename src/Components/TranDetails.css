@@ -1,21 +1,6 @@
-.card-inner {
-    padding: 2ch;
-    text-align:center; 
-      
-}
-
-.showNavigation-buttons {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 2ch;  
-}
-
-.show-card-outter {
-    justify-content: center;
-    margin-top: 2ch;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2ch;
-    width: max-content; 
-    border-radius: 25px;
+.inner-show-card {
+   height: 100%;
+   text-align: center;
+   justify-content: center;
+   padding: 5ch;
 }

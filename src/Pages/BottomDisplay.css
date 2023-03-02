@@ -1,72 +1,37 @@
-.dashboard-display-container {
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    margin-top: 2ch;
-    margin-left: 2%;
-    margin-right: auto;
-}
-
 #show {
-  text-align: center;
-  border: solid black;
   border-radius: 3ch;
   width: 90%;
   margin: 1.5%;
 }
-
-#show > ul {
-  padding-right: 5ch;
-  justify-content: center;
-  list-style:none;
-}
-
-#show ul > li {
-  list-style: none;
-}
-
-.entry h4 {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-}
-
-.entry h6 {
-  font-style: italic;
-}
-
-.hide-entry-ul {
+.hide-entry-tr {
   display: none;
 }
 
-.show-card-options {
-  display: flex;
-  justify-content: space-around;
+.no-properties {
+  background: none;
+	color: inherit;
+  border: none;
 }
 
-.show-card-options button {
-  background: transparent;
-  border-radius: 8px;
-  text-decoration: underline;
+.center-content th {
+  padding: 8px;
 }
 
-.new-expense-btnContainer {
-  display: flex;
+
+@media only screen and (max-width: 1202px) {
+  #med-col {
+    width: 15%;
+  }
+  #small-col {
+    width: 12%;
+  }
 }
 
-.content__button {
-  position: fixed;
-  border: 1px solid white;
-  bottom: 0;
-  right: 0;
-}
-
-#hide-button {
-  display: none;
-}
-
-@media only screen and ( max-width: 480px) {
-  .dashboard-display-container {
-    display:inline-block;
-    margin-left: 10%;
-
-}
+@media only screen and (max-width: 883px) {
+  #med-col {
+    width: 10%;
+  }
+  #small-col {
+    max-width: 15%;
+  }
 }

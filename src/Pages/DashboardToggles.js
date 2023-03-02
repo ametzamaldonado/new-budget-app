@@ -1,7 +1,7 @@
 import React from 'react';
 import "./DashboardToggles.css";
 
-function DashboardToggles({ setToggleChoice}) {
+function DashboardToggles({ setToggleChoice }) {
 
   const handleToggle = (e) => {
     const chosen = e.target.id
@@ -18,14 +18,22 @@ function DashboardToggles({ setToggleChoice}) {
   
     return (
         <>
-            <div className="budget-display">
-                <h2 className="display-title">Dashboard</h2>
-                <div className="display-options">
-                    <div id="expTog" onClick={handleToggle}>Expenses</div>
-                    <div id="incTog" onClick={handleToggle}>Income</div>
-                    <div id="allTog" onClick={handleToggle} className='active'>All</div>
+                <div className="row separate-components grid-sortedDisplay">
+                    <h5 className='text-muted'>Sort Entries</h5>
+                    <ul className="display-options list-unstyled">
+                    <li id="expTog" onClick={handleToggle}>EXPENSES</li>
+                    <li id="incTog" onClick={handleToggle}>INCOME</li>
+                    <li id="allTog" onClick={handleToggle} className='active'>ALL</li>
+                    </ul>
                 </div>
-            </div>
+                <div className="row grid-otherDisplay">
+                    <h5 className='text-muted'>Other</h5>
+                    <ul className="display-options list-unstyled">
+                        <li>
+                            <a href="/transactions/new">ADD ENTRY</a>
+                        </li>
+                    </ul>
+                </div>
         </>
     )
 }

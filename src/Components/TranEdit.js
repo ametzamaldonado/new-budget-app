@@ -1,12 +1,13 @@
-import { useState, useEffect, React } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import "./TranEdit.css"
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Form from "./Form"
+import "./TranEdit.css"
 
-const API = 'https://budget-app-api-sample-data.onrender.com';
+
+const API = process.env.REACT_APP_API
 
 function TranEdit() {
-
     let { index } = useParams();
     const navigate = useNavigate();
     const [value, setValue] = useState('');
@@ -27,99 +28,24 @@ function TranEdit() {
             .catch(err => navigate('/404'))
     }, [index, navigate]);
 
-    const handleTextChange = (e) => {
-        setTransaction({ ...transaction, [e.target.id]: e.target.value });
-    };
-
-    const handleOptionChange = (e) => {
-        setValue(e.target.value);
-        setTransaction({ ...transaction, category: e.target.value });
-    };
-
-
     const updateTranEntry = () => {
         axios.put(`${API}/transactions/${index}`, transaction)
             .then(res => {
                 setTransaction(res.data)
-                navigate(`/transactions/${index}`)
+                window.location.reload();
+                // navigate(`/transactions/${index}`)
             })
             .catch((err) => navigate(`/404`))
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmitEdit = (event) => {
         event.preventDefault();
-        console.log(transaction)
         updateTranEntry();
     };
 
     return (
-        <div className="Edit">
-            <br />
-            <form className='entry-form' onSubmit={handleSubmit}>
-                <label htmlFor="item_name">
-                    <span className='entry-title'>Item Name <span className="required">*</span></span>
-                    <input
-                        id="item_name"
-                        value={transaction.item_name}
-                        type="text"
-                        onChange={handleTextChange}
-                        placeholder="Enter Expense Item..."
-                        required
-                    />
-                </label>
-
-
-                <label htmlFor="entry_date">
-                    <span className='entry-title'>Date <span className="required">*</span></span>
-                    <input
-                        id="date"
-                        type="date"
-                        min="2019-01-01"
-                        max="2022-12-31"
-                        value={transaction.date}
-                        onChange={handleTextChange}
-                        required
-                    />
-                </label>
-
-                <label htmlFor="amount">
-                    <span className='entry-title'>Amount <span className="required">*</span></span>
-                    <input
-                        id="amount"
-                        type="number"
-                        required
-                        value={transaction.amount}
-                        onChange={handleTextChange}
-                    />
-                </label>
-
-                <label htmlFor="category">
-                    <span className='entry-title'>Category <span className="required">*</span></span>
-                    <select className="category-dropdown" id="category" value={transaction.category} onChange={handleOptionChange}>
-                        <option value=''>Pick Option</option>
-                        <option value="Income" >Income</option>
-                        <option value="Expense">Expense</option>
-                    </select>
-                </label>
-
-                <label htmlFor="from">
-                    <span className='entry-title'>From <span className="required">*</span></span>
-                    <input
-                        id="from"
-                        value={transaction.from}
-                        type="text"
-                        onChange={handleTextChange}
-                        required
-                    />
-                </label>
-
-                <div className="showNavigation-buttons">
-                    <button type="submit">Submit</button>
-                    <Link to={`/transactions/${index}`}>
-                        <button>Nevermind!</button>
-                    </Link>
-                </div>
-            </form>
+        <div className="edit-column">
+            <Form transaction={transaction} setTransaction={setTransaction} setValue={setValue} handleSubmit={handleSubmitEdit}/>
         </div>
     );
 }

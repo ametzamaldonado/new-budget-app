@@ -1,21 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './App.css';
 
 // Pages
-import TopDisplay from './Pages/TopDisplay';
-import BottomDisplay from './Pages/BottomDisplay';
-import DashboardToggles from "./Pages/DashboardToggles";
-import ErrorPage from "./Pages/ErrorPage";
+import { MonetaryDisplay, BottomDisplay, ErrorPage, Loading, TopPageDisplay, ShowPage } from "./Pages/index"
 
 // Components
-import TranDetails from "./Components/TranDetails";
-import TranEdit from "./Components/TranEdit";
-import TranAdd from "./Components/TranAdd";
+import { TranDetails, TranEdit, TranAdd } from "./Components/index"
 
-const API = 'https://budget-app-api-sample-data.onrender.com';
+const API = process.env.REACT_APP_API;
 
 function App() {
   const [toggleChoice, setToggleChoice] = useState('allTog')
@@ -23,38 +17,50 @@ function App() {
   const [expenseTotal, setExpenseTotal] = useState(0)
   const [transactions, setTransactions] = useState([]);
 
+  const [loaded, setDoneLoading] = useState(undefined);
+
   useEffect(() => {
-    axios.get(`${API}/transactions`) // fetches data from API that is running as well
-      .then((res) => {
-        setTransactions(res.data)
-      })
-      .catch((err) => { console.log(err) })
-  }, [transactions])
+    setTimeout(() => {
+      axios.get(`${API}/transactions`)
+        .then((response) => {
+          setTransactions(response.data);
+          setDoneLoading(true);
+        });
+    }, 2000);
+  }, [transactions]);
 
   return (
     <>
-    <div className="App">
-      <Router>
-        <TopDisplay 
-        incomeTotal={incomeTotal} 
-        setIncomeTotal={setIncomeTotal} 
-        expenseTotal={expenseTotal}  
-        setExpenseTotal={setExpenseTotal}
-        transactions={transactions}
-        />
-        <DashboardToggles setToggleChoice={setToggleChoice} />
+      <div className="App">
+
+        <TopPageDisplay setToggleChoice={setToggleChoice} />
         <main>
-          <Routes>
-            <Route path="/" element={<BottomDisplay transactions={transactions} toggleChoice={toggleChoice} />} />
-            <Route path="/transactions" element={<BottomDisplay transactions={transactions} toggleChoice={toggleChoice} />} />
-            <Route path="/transactions/:index" element={<TranDetails />} />
-            <Route path="/transactions/:index/edit" element={<TranEdit />} />
-            <Route path="/transactions/new" element={<TranAdd />} />
-            <Route path="/404" element={<ErrorPage />} />
-          </Routes>  
+          <Router>
+            <MonetaryDisplay
+              incomeTotal={incomeTotal}
+              setIncomeTotal={setIncomeTotal}
+              expenseTotal={expenseTotal}
+              setExpenseTotal={setExpenseTotal}
+              transactions={transactions}
+            />
+            {
+              !loaded ?
+                (
+                  <Loading />
+                ) :
+                (
+                  <Routes>
+                    <Route path="/" element={<BottomDisplay transactions={transactions} toggleChoice={toggleChoice} incomeTotal={incomeTotal} expenseTotal={expenseTotal} />} />
+                    <Route path="/transactions" element={<BottomDisplay transactions={transactions} toggleChoice={toggleChoice} />} />
+                    <Route path="/transactions/:index" element={ <ShowPage /> } />
+                    <Route path="/transactions/new" element={<TranAdd />} />
+                    <Route path="/404" element={<ErrorPage />} />
+                  </Routes>
+                )
+            }
+          </Router>
         </main>
-      </Router>
-    </div>    
+      </div>
     </>
   );
 }
